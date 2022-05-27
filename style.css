@@ -1,0 +1,112 @@
+:root {
+    --subtle: #cdcdcd;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+hr {
+    border: 1px solid var(--subtle);
+}
+
+input {
+    background-color: transparent;
+    height: 100%;
+    border: none;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--subtle);
+}
+
+.card *:nth-child(1) {
+    min-width: 100px;
+    max-width: 100px;
+}
+
+#container {
+    margin: 0px auto;
+    width: min-content;
+    text-align: center;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+
+    margin: 0px auto 10px auto;
+    text-align: left;
+    width: 600px;
+    border: 2px solid var(--subtle);
+    border-radius: 5px;
+    height: 50px;
+}
+
+.card * {
+    margin: auto 0px;
+    height: 40px;
+
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.task-remove {
+    font-weight: bolder;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    bottom: 50%;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+
+    color: red;
+
+    transition: all 0.2s;
+
+    visibility: hidden;
+    opacity: 0;
+}
+
+.card:hover .task-remove {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.task-card .task-due-date {
+    border-right: 2px solid var(--subtle);
+    color: var(--subtle);
+    text-align: center;
+
+    order: 0;
+    flex: 1 1 60px;
+    align-self: auto;
+}
+
+.task-card .task-label {
+    text-align: left;
+    padding-left: 10px;
+
+    order: 1;
+    flex: 10 1 auto;
+    align-self: auto;
+}
+
+#new-task-card {}

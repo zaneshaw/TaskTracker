@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Task Tracker</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Task Tracker</h1>
+            <div id="task-container">
+                <div class="task-card card">
+                    <span class="task-due-date">Tomorrow</span>
+                    <span class="task-label">Homework A</span>
+                    <span class="task-remove custom-button">&#8211</span>
+                </div>
+                <div class="task-card card">
+                    <span class="task-due-date">18 hours</span>
+                    <span class="task-label">Homework B</span>
+                    <span class="task-remove custom-button">&#8211</span>
+                </div>
+                <div class="task-card card">
+                    <span class="task-due-date">2 Hours</span>
+                    <span class="task-label">Homework C</span>
+                    <span class="task-remove custom-button">&#8211</span>
+                </div>
+                <div class="task-card card">
+                    <span class="task-due-date">24 Jun</span>
+                    <span class="task-label">Homework D</span>
+                    <span class="task-remove custom-button">&#8211</span>
+                </div>
+            </div>
+            <hr>
+            <!-- <div id="new-task-card" class="card">
+                <span class="task-due-date">a</span>
+                <input type="text" id="new-task-name" placeholder="Task name">
+                <span>aaa</span>
+                <span class="task-add custom-button">＋</span>
+            </div> -->
+            <div class="task-card card">
+                <span class="task-due-date">No Time</span>
+                <input type="datetime-local" id="new-task-name" placeholder="Task name">
+                <span class="task-remove custom-button">&#8211</span>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
