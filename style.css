@@ -37,14 +37,33 @@ input::placeholder {
     color: var(--subtle);
 }
 
+/* 'No tasks' card styling */
+#no-task-card {
+    border-style: dashed;
+
+    min-width: auto;
+    max-width: auto;
+
+    text-align: center;
+
+    order: 0;
+    flex: 0 1 auto;
+}
+
+#no-task-card * {
+    display: block;
+    border: none;
+    margin: auto 0px;
+
+    line-height: 50px;
+
+    min-width: 100%;
+    max-width: 100%;
+}
+
 /* Disable any special cursor for task cards */
 .task-card {
     cursor: default;
-}
-
-/* Hide task seperator on default */
-#task-seperator {
-    display: none;
 }
 
 /* Date modal styling */

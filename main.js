@@ -3,7 +3,6 @@ const taskContainer = document.getElementById("task-container");
 const newTaskDate = document.getElementById("new-task-date");
 const newTaskName = document.getElementById("new-task-name");
 const dateModal = document.getElementById("date-modal");
-const taskSeperator = document.getElementById("task-seperator");
 
 const dateModalOptions = {
     year: document.getElementById("date-modal-year"),
@@ -100,7 +99,7 @@ function init() {
 }
 
 function evaluateTasks() {
-    taskSeperator.style.display = Task.tasks.length > 0 ? "block" : "none";
+    document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
 
     localStorage.setItem("tasks", JSON.stringify(Task.tasks));
 }
