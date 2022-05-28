@@ -1,15 +1,24 @@
+/* Colour scheme css variables */
 :root {
     --subtle: #cdcdcd;
 }
 
+/* Apply font family to everything */
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
+/* Prevents scrollbar from altering content position */
+html {
+    overflow-y: scroll;
+}
+
+/* Horizontal line styling */
 hr {
     border: 1px solid var(--subtle);
 }
 
+/* Input styling */
 input {
     background-color: transparent;
     height: 100%;
@@ -18,25 +27,138 @@ input {
     padding-left: 10px;
 }
 
+/* Removes outline on a focused text input */
 input:focus {
     outline: none;
 }
 
+/* Changes text input placeholder colour */
 input::placeholder {
     color: var(--subtle);
 }
 
-.card *:nth-child(1) {
-    min-width: 100px;
-    max-width: 100px;
+/* Disable any special cursor for task cards */
+.task-card {
+    cursor: default;
 }
 
+/* Hide task seperator on default */
+#task-seperator {
+    display: none;
+}
+
+/* Date modal styling */
+#date-modal {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    cursor: initial;
+
+    background-color: white;
+    border: 2px solid var(--subtle);
+    border-radius: 5px;
+    min-height: 220px;
+    width: 250px;
+
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Date modal dismiss button styling */
+#date-modal a {
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Flexbox styling for date modal inputs */
+.input-flex {
+    display: flex;
+    padding: 0px 5px;
+    box-sizing: border-box;
+}
+
+/* Flexbox width adjustment for month input in date modal */
+#date-modal-month {
+    flex: 2;
+}
+
+/* Date modal input styling */
+.input-flex select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+
+    flex: 1;
+    width: 50px;
+    margin: 0px 5px;
+    border: none;
+    border-bottom: 1px solid var(--subtle);
+}
+
+/* Disable outline on dropdowns in date modal */
+.input-flex select:focus {
+    outline: none;
+}
+
+/* Card button styling */
+.custom-button {
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    bottom: 50%;
+    display: inline-block;
+    width: 40px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Uniform width for first element in all cards */
+.card > *:nth-child(1) {
+    min-width: 100px;
+    max-width: 100px;
+
+    border-right: 2px solid var(--subtle);
+    color: var(--subtle);
+    text-align: center;
+
+    order: 0;
+    flex: 1 1 60px;
+    align-self: auto;
+}
+
+/* Uniform width for second element in card */
+.card > *:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+
+    order: 1;
+    flex: 10 1 auto;
+    align-self: auto;
+}
+
+/* Container styling */
 #container {
-    margin: 0px auto;
+    margin: 200px auto;
     width: min-content;
     text-align: center;
 }
 
+/* Card styling */
 .card {
     position: relative;
     display: flex;
@@ -54,6 +176,7 @@ input::placeholder {
     height: 50px;
 }
 
+/* Card children styling */
 .card * {
     margin: auto 0px;
     height: 40px;
@@ -62,51 +185,33 @@ input::placeholder {
     line-height: 40px;
 }
 
+/* Task add button styling */
+.task-add {
+    color: rgb(0, 214, 0);
+    font-size: xx-large;
+}
+
+/* Task remove button styling */
 .task-remove {
-    font-weight: bolder;
-    font-size: 24px;
-    cursor: pointer;
-    user-select: none;
-
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    bottom: 50%;
-    display: inline-block;
-    width: 40px;
-    text-align: center;
-
     color: red;
-
-    transition: all 0.2s;
 
     visibility: hidden;
     opacity: 0;
+
+    transition: all 0.2s;
 }
 
+/* Task remove button appears on card hover */
 .card:hover .task-remove {
     visibility: visible;
     opacity: 1;
     transition: all 0.2s;
 }
 
-.task-card .task-due-date {
-    border-right: 2px solid var(--subtle);
-    color: var(--subtle);
-    text-align: center;
+/* New task due date button styling */
+#new-task-date {
+    position: relative;
 
-    order: 0;
-    flex: 1 1 60px;
-    align-self: auto;
+    cursor: pointer;
+    text-decoration: underline;
 }
-
-.task-card .task-label {
-    text-align: left;
-    padding-left: 10px;
-
-    order: 1;
-    flex: 10 1 auto;
-    align-self: auto;
-}
-
-#new-task-card {}
