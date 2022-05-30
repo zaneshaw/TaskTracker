@@ -4,6 +4,8 @@ const newTaskDate = document.getElementById("new-task-date");
 const newTaskName = document.getElementById("new-task-name");
 const dateModal = document.getElementById("date-modal");
 
+let dueDatePadding = 5; // Minutes to allow task to be due
+
 const dateModalOptions = {
     year: document.getElementById("date-modal-year"),
     month: document.getElementById("date-modal-month"),
@@ -64,7 +66,7 @@ class Task {
         const diffHours = diffMins / 60;
         const diffDays = diffHours / 24;
 
-        if (diffMins <= -15) { // Check if due date is more than 15 minutes in the past
+        if (diffMins <= -dueDatePadding) { // Check if due date is more than x minutes in the past
             return "Overdue!";
         } else if (diffHours < 0) {
             return "Due Now!";
