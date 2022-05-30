@@ -182,6 +182,11 @@ function initTasks() {
     localStorage.setItem("tasks", JSON.stringify([]));
 }
 
+function clearTasks() {
+    initTasks();
+    window.location.reload();
+}
+
 function updateDayOptions() {
     var year = document.getElementById("date-modal-year").value; // Reference year value
     var month = document.getElementById("date-modal-month").value; // Reference month value
