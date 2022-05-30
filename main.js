@@ -77,9 +77,9 @@ class Task {
         } else if (diffHours < 0) {
             return "Due Now!";
         } else if (diffMins <= 59) { // Check if due date is under 1 hour
-            return `${Math.ceil(diffMins)} Minutes`; // Rounded up (ceiling)
+            return plural("Minute", Math.ceil(diffMins)); // Rounded up (ceiling)
         } else if (diffDays < 1) { // Check if due date is under 24 hours
-            return `${Math.round(diffHours)} Hours`; // Rounded to nearest
+            return plural("Hour", Math.round(diffHours)); // Rounded to nearest (plural support)
         } else if (day == new Date().getDate() + 1) { // Check if due date is tomorrow
             return "Tomorrow";
         } else { // Check if date is after tomorrow
@@ -200,6 +200,11 @@ function removeFadeOut(el, speed) {
         // Update local storage and seperator
         evaluateTasks();
     }, speed);
+}
+
+// Convert a number paired with a string to a plural
+function plural(str, mag) {
+    return `${mag} ${str}${(mag == 1 ? "" : "s")}`;
 }
 
 function uuid() {
