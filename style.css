@@ -37,11 +37,34 @@ input::placeholder {
     color: var(--subtle);
 }
 
+/* Fix settings button and modal to te top right of the screen */
 #settings {
     position: fixed;
     top: 5px;
     right: 5px;
+
+    text-align: right;
+}
+
+/* Settings button pointer cursor */
+#settings-btn {
     cursor: pointer;
+}
+
+/* Styling for the settings pop-up */
+#settings-modal {
+    display: none;
+    text-align: center;
+
+    width: 200px;
+    height: 100px;
+    padding: 0px 15px;
+
+    border: 2px solid var(--subtle);
+    border-radius: 5px;
+
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* 'No tasks' card styling */
