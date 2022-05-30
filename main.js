@@ -38,7 +38,7 @@ class Task {
                 </div>
             `;
 
-            // Update local storage and seperator
+            // Force evaluate
             evaluateTasks();
         }
     }
@@ -82,7 +82,6 @@ class Task {
 
 // Initial read of the local storage task array
 function init() {
-    // Update local storage and seperator
     if (localStorage.getItem("tasks") != null) {
         Task.tasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -99,12 +98,18 @@ function init() {
         localStorage.setItem("tasks", JSON.stringify([]));
     }
 
+    // Force evaluate
     evaluateTasks();
 }
 
 function evaluateTasks() {
-    document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
     if (localStorage.getItem("tasks") != null) {
+        document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
+
+        // Update due date for all tasks
+        Task.tasks.forEach(task => {
+            document.getElementById(task.id).getElementsByClassName("task-due-date")[0].textContent = Task.convertDate(task.date);
+        });
 
         localStorage.setItem("tasks", JSON.stringify(Task.tasks));
     }
