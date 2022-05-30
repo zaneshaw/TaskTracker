@@ -56,10 +56,10 @@ class Task {
     static convertDate(dateStr) {
         var date = new Date(dateStr); // Convert due date string to Date class
         var day = date.getDate(); // Get day number of due date
-        var todayString = new Date().toLocaleString(); // Convert today's date to locale string
+        var today = new Date(); // Snapshot curent date and time
 
         // Difference between due date and today
-        const diff = date - new Date(todayString);
+        const diff = date - today;
         const diffMins = diff / (1000 * 60);
         const diffHours = diffMins / 60;
         const diffDays = diffHours / 24;
