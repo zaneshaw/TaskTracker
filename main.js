@@ -105,7 +105,7 @@ function init() {
             Task.create(task.id);
         });
     } else {
-        localStorage.setItem("tasks", JSON.stringify([]));
+        initTasks();
     }
 
     // Force evaluate
@@ -176,6 +176,10 @@ function showNewTaskModal() {
 
 function hideNewTaskModal() {
     dateModal.style.display = "none"; // Set date modal to 'none'
+}
+
+function initTasks() {
+    localStorage.setItem("tasks", JSON.stringify([]));
 }
 
 function updateDayOptions() {
