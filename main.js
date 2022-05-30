@@ -70,7 +70,7 @@ class Task {
             return "Overdue!";
         } else if (diffHours < 0) {
             return "Due Now!";
-        } else if (diffHours <= 1) { // Check if due date is under 1 hour
+        } else if (diffMins <= 59) { // Check if due date is under 1 hour
             return `${Math.ceil(diffMins)} Minutes`; // Rounded up (ceiling)
         } else if (diffDays < 1) { // Check if due date is under 24 hours
             return `${Math.round(diffHours)} Hours`; // Rounded to nearest
