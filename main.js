@@ -3,6 +3,7 @@ const taskContainer = document.getElementById("task-container");
 const newTaskDate = document.getElementById("new-task-date");
 const newTaskName = document.getElementById("new-task-name");
 const dateModal = document.getElementById("date-modal");
+const settingsModal = document.getElementById("settings-modal");
 
 let dueDatePadding = 5; // Minutes to allow task to be due
 
@@ -159,7 +160,15 @@ document.addEventListener("click", (e) => {
     } else {
         hideNewTaskModal(); // Hide date modal
     }
+
+    if (!document.getElementById("settings-btn").contains(e.target) && !settingsModal.contains(e.target)) {
+        settingsModal.style.display = "none"; // Set settings modal to 'none'
+    }
 });
+
+function showSettingsModal() {
+    settingsModal.style.display = "block"; // Set settings modal to 'block'
+}
 
 function showNewTaskModal() {
     dateModal.style.display = "block"; // Set date modal to 'block'
