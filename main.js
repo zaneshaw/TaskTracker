@@ -32,17 +32,23 @@ class Task {
             Task.tasks.push(this);
 
             // Add 
-            taskContainer.innerHTML += `
-                <div class="task-card card" id="${this.id}">
-                    <span class="task-due-date">${Task.convertDate(this.date)}</span>
-                    <span class="task-label">${this.label}</span>
-                    <span class="task-remove custom-button" onclick="Task.remove('${this.id}')">&#8211;</span>
-                </div>
-            `;
+            Task.create(this.id);
 
             // Force evaluate
             evaluateTasks();
         }
+    }
+
+    static create(id) {
+        var task = Task.tasks.find(obj => obj.id === id);
+
+        taskContainer.innerHTML += `
+            <div class="task-card card" id="${task.id}">
+                <span class="task-due-date" title="${new Date(task.date)}">${Task.convertDate(task.date)}</span>
+                <span class="task-label">${task.label}</span>
+                <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
+            </div>
+        `;
     }
 
     static remove(id) {
@@ -88,13 +94,7 @@ function init() {
         Task.tasks = JSON.parse(localStorage.getItem("tasks"));
 
         Task.tasks.forEach(task => {
-            taskContainer.innerHTML += `
-                <div class="task-card card" id="${task.id}">
-                    <span class="task-due-date"></span>
-                    <span class="task-label">${task.label}</span>
-                    <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
-                </div>
-            `;
+            Task.create(task.id);
         });
     } else {
         localStorage.setItem("tasks", JSON.stringify([]));
