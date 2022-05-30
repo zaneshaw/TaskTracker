@@ -180,6 +180,11 @@ function updateDayOptions() {
     dayRef.value = day <= monthLength ? day : monthLength;
 }
 
+// Evaluate tasks every 1000ms
+setInterval(() => {
+    evaluateTasks();
+}, 1000);
+
 // alvarodms - https://stackoverflow.com/questions/33424138/how-to-remove-a-div-with-fade-out-effect-in-javascript
 function removeFadeOut(el, speed) {
     el.style.transition = `opacity ${speed / 1000}s ease`;
