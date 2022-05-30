@@ -82,26 +82,32 @@ class Task {
 
 // Initial read of the local storage task array
 function init() {
-    Task.tasks = JSON.parse(localStorage.getItem("tasks"));
-
-    Task.tasks.forEach(task => {
-        taskContainer.innerHTML += `
-            <div class="task-card card" id="${task.id}">
-                <span class="task-due-date">${Task.convertDate(task.date)}</span>
-                <span class="task-label">${task.label}</span>
-                <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
-            </div>
-        `;
-    });
-
     // Update local storage and seperator
+    if (localStorage.getItem("tasks") != null) {
+        Task.tasks = JSON.parse(localStorage.getItem("tasks"));
+
+        Task.tasks.forEach(task => {
+            taskContainer.innerHTML += `
+                <div class="task-card card" id="${task.id}">
+                    <span class="task-due-date"></span>
+                    <span class="task-label">${task.label}</span>
+                    <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
+                </div>
+            `;
+        });
+    } else {
+        localStorage.setItem("tasks", JSON.stringify([]));
+    }
+
     evaluateTasks();
 }
 
 function evaluateTasks() {
     document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
+    if (localStorage.getItem("tasks") != null) {
 
-    localStorage.setItem("tasks", JSON.stringify(Task.tasks));
+        localStorage.setItem("tasks", JSON.stringify(Task.tasks));
+    }
 }
 
 function newTask() {
