@@ -151,6 +151,7 @@ function resetDateModalOptions() {
     dateModalOptions.period.value = date.getHours() >= 12 ? "PM" : "AM"; // Check if time is in the first half or second half of the day (AM/PM)
 }
 
+// Handle document click events
 document.addEventListener("click", (e) => {
     // Check if user clicked on the 'new task date' button and NOT the 'hide date modal' button
     if (newTaskDate.contains(e.target) && !document.getElementById("hide-new-task-modal-btn").contains(e.target)) {
