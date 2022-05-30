@@ -37,6 +37,12 @@ input::placeholder {
     color: var(--subtle);
 }
 
+#settings {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
 /* 'No tasks' card styling */
 #no-task-card {
     border-style: dashed;
