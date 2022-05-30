@@ -147,7 +147,7 @@ function resetDateModalOptions() {
     dateModalOptions.month.value = date.getMonth() + 1; // Get current month
     dateModalOptions.day.value = date.getDate(); // Get current day
 
-    dateModalOptions.hour.value = date.getHours(); // Get current hour based on local time
+    dateModalOptions.hour.value = date.getHours()%12; // Get current hour based on local time
     dateModalOptions.minute.value = date.getMinutes(); // Get current minute based on local time
     dateModalOptions.period.value = date.getHours() >= 12 ? "PM" : "AM"; // Check if time is in the first half or second half of the day (AM/PM)
 }
