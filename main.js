@@ -6,6 +6,7 @@ const dateModal = document.getElementById("date-modal");
 const settingsModal = document.getElementById("settings-modal");
 
 let dueDatePadding = 5; // Minutes to allow task to be due
+let taskFadeDuration = 500;
 
 const dateModalOptions = {
     year: document.getElementById("date-modal-year"),
@@ -56,7 +57,7 @@ class Task {
         `);
 
         var el = document.getElementById(id);
-        $(el).hide().fadeIn(500);
+        $(el).hide().fadeIn(taskFadeDuration);
 
         checkNullTasks();
     }
@@ -70,7 +71,7 @@ class Task {
         });
 
         // Remove existing task in DOM (including evaluation)
-        $(el).fadeOut(500, () => { el.remove(); checkNullTasks(); });
+        $(el).fadeOut(taskFadeDuration, () => { el.remove(); checkNullTasks(); });
     }
 
     static convertDate(dateStr) {
