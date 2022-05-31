@@ -6,7 +6,7 @@ const dateModal = document.getElementById("date-modal");
 const settingsModal = document.getElementById("settings-modal");
 
 let dueDatePadding = 5; // Minutes to allow task to be due
-let taskFadeDuration = 500;
+let taskFadeDuration = 500; // Milliseconds it takes for task cards to dis/appear
 
 const dateModalOptions = {
     year: document.getElementById("date-modal-year"),
@@ -126,10 +126,12 @@ function init() {
     checkNullTasks();
 }
 
+// Check if there are no tasks in the task array
 function checkNullTasks() {
     document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
 }
 
+// Evaluate the due date of all tasks and re-sync to local storage
 function evaluateTasks() {
     if (localStorage.getItem("tasks") != null) {
         // Update due date for all tasks
