@@ -105,8 +105,8 @@ function init() {
     // Apply jQuery UI tooltip to all title attributes in document
     $( document ).tooltip({
         position: { my: "center bottom-30", at: "top center" },
-        show: { duration: 0 },
-        hide: { duration: 0 }
+        show: { duration: 100 },
+        hide: { duration: 100 }
     });
 
     if (localStorage.getItem("tasks") != null) {
