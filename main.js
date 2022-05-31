@@ -57,6 +57,8 @@ class Task {
 
         var el = document.getElementById(id);
         $(el).hide().fadeIn(500);
+
+        checkNullTasks();
     }
 
     static remove(id) {
@@ -68,7 +70,7 @@ class Task {
         });
 
         // Remove existing task in DOM (including evaluation)
-        $(el).fadeOut(500, () => { el.remove(); });
+        $(el).fadeOut(500, () => { el.remove(); checkNullTasks(); });
     }
 
     static convertDate(dateStr) {
@@ -119,12 +121,16 @@ function init() {
 
     // Force evaluate
     evaluateTasks();
+
+    checkNullTasks();
+}
+
+function checkNullTasks() {
+    document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
 }
 
 function evaluateTasks() {
     if (localStorage.getItem("tasks") != null) {
-        document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
-
         // Update due date for all tasks
         Task.tasks.forEach(task => {
             document.getElementById(task.id).getElementsByClassName("task-due-date")[0].textContent = Task.convertDate(task.date);
