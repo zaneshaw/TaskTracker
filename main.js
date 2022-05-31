@@ -54,16 +54,21 @@ class Task {
                 <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
             </div>
         `);
+
+        var el = document.getElementById(id);
+        $(el).hide().fadeIn(500);
     }
 
     static remove(id) {
+        var el = document.getElementById(id);
+
         // Return an array that contains all but the task with the specified ID
         Task.tasks = Task.tasks.filter(function (task) {
             return task.id !== id;
         });
 
         // Remove existing task in DOM (including evaluation)
-        removeFadeOut(document.getElementById(id), 500);
+        $(el).fadeOut(500, () => { el.remove(); });
     }
 
     static convertDate(dateStr) {
@@ -216,21 +221,6 @@ function updateDayOptions() {
 setInterval(() => {
     evaluateTasks();
 }, 1000);
-
-// alvarodms - https://stackoverflow.com/questions/33424138/how-to-remove-a-div-with-fade-out-effect-in-javascript
-function removeFadeOut(el, speed) {
-    el.style.transition = `opacity ${speed / 1000}s ease`;
-
-    el.style.opacity = 0;
-    setTimeout(() => { // Wait for opacity ease-out
-        console.log(`Removing ${el.id}...`);
-        // Remove element
-        el.parentNode.removeChild(el);
-
-        // Update local storage and seperator
-        evaluateTasks();
-    }, speed);
-}
 
 // Convert a number paired with a string to a plural
 function plural(str, mag) {
