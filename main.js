@@ -47,13 +47,13 @@ class Task {
     static create(id) {
         var task = Task.tasks.find(obj => obj.id === id);
 
-        taskContainer.innerHTML += `
+        taskContainer.insertAdjacentHTML("beforeend", `
             <div class="task-card card" id="${task.id}">
                 <span class="task-due-date" title="${new Date(task.date)}">${Task.convertDate(task.date)}</span>
                 <span class="task-label">${task.label}</span>
                 <span class="task-remove custom-button" onclick="Task.remove('${task.id}')">&#8211;</span>
             </div>
-        `;
+        `);
     }
 
     static remove(id) {
