@@ -21,6 +21,10 @@ const dateModalOptions = {
     }
 }
 
+$(document).ready(function(){
+    $('html').fadeIn();
+});
+
 class Task {
     static tasks = [];
 
