@@ -11,6 +11,7 @@
 /* Prevents scrollbar from altering content position */
 html {
     overflow-y: scroll;
+    display: none;
 }
 
 /* Horizontal line styling */
