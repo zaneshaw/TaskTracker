@@ -178,7 +178,7 @@ input::placeholder {
 }
 
 /* Uniform width for first element in all cards */
-.card > *:nth-child(1) {
+.card>*:nth-child(1) {
     min-width: 100px;
     max-width: 100px;
 
@@ -192,7 +192,7 @@ input::placeholder {
 }
 
 /* Uniform width for second element in card */
-.card > *:nth-child(2) {
+.card>*:nth-child(2) {
     text-align: left;
     padding-left: 10px;
 
