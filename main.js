@@ -133,7 +133,7 @@ function checkTasks() {
 
     // Animation for task counter text
     $("#taskcount").fadeOut("fast", () => {
-        $("#taskcount").text(Task.tasks.length);
+        $("#taskcount").text(`${Task.tasks.length} Active ${plural("Task", Task.tasks.length, false)}`);
         $("#taskcount").fadeIn("fast");
     });
 }
@@ -253,8 +253,8 @@ setInterval(() => {
 }, 1000);
 
 // Convert a number paired with a string to a plural
-function plural(str, mag) {
-    return `${mag} ${str}${(mag == 1 ? "" : "s")}`;
+function plural(str, mag, prependMag = true) {
+    return `${prependMag ? mag : ""} ${str}${(mag == 1 ? "" : "s")}`.trim();
 }
 
 function uuid() {
