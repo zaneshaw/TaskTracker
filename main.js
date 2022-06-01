@@ -131,7 +131,11 @@ function init() {
 function checkTasks() {
     document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
 
-    document.getElementById("taskcount").textContent = Task.tasks.length;
+    // Animation for task counter text
+    $("#taskcount").fadeOut("fast", () => {
+        $("#taskcount").text(Task.tasks.length);
+        $("#taskcount").fadeIn("fast");
+    });
 }
 
 // Evaluate the due date of all tasks and re-sync to local storage
