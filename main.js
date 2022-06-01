@@ -253,8 +253,8 @@ setInterval(() => {
 }, 1000);
 
 // Convert a number paired with a string to a plural
-function plural(str, mag) {
-    return `${mag} ${str}${(mag == 1 ? "" : "s")}`;
+function plural(str, mag, prependMag = true) {
+    return `${prependMag ? mag : ""} ${str}${(mag == 1 ? "" : "s")}`.trim();
 }
 
 function uuid() {
