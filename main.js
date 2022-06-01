@@ -23,7 +23,7 @@ const dateModalOptions = {
 }
 
 $(document).ready(function(){
-    $('html').fadeIn();
+    $('html').fadeIn(2000);
 });
 
 class Task {
