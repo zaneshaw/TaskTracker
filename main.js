@@ -22,7 +22,7 @@ const dateModalOptions = {
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('html').fadeIn();
 });
 
@@ -104,7 +104,7 @@ class Task {
 // Initial read of the local storage task array
 function init() {
     // Apply jQuery UI tooltip to all title attributes in document
-    $( document ).tooltip({
+    $(document).tooltip({
         position: { my: "center bottom-30", at: "top center" },
         show: { duration: 100 },
         hide: { duration: 100 }
@@ -165,7 +165,7 @@ function resetDateModalOptions() {
     dateModalOptions.month.value = date.getMonth() + 1; // Get current month
     dateModalOptions.day.value = date.getDate(); // Get current day
 
-    dateModalOptions.hour.value = date.getHours()%12; // Get current hour based on local time
+    dateModalOptions.hour.value = date.getHours() % 12; // Get current hour based on local time
     dateModalOptions.minute.value = date.getMinutes(); // Get current minute based on local time
     dateModalOptions.period.value = date.getHours() >= 12 ? "PM" : "AM"; // Check if time is in the first half or second half of the day (AM/PM)
 }
@@ -204,6 +204,10 @@ function clearTasks() {
     initTasks();
     window.location.reload();
 }
+
+$("form").submit(function (e) {
+    e.preventDefault();
+});
 
 function updateDayOptions() {
     var year = document.getElementById("date-modal-year").value; // Reference year value
