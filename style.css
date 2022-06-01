@@ -38,6 +38,17 @@ input::placeholder {
     color: var(--subtle);
 }
 
+#reset-date-modal-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+}
+
 /* Fix settings button and modal to te top right of the screen */
 #settings {
     position: fixed;
