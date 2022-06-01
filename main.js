@@ -60,7 +60,7 @@ class Task {
         var el = document.getElementById(id);
         $(el).hide().fadeIn(taskFadeDuration);
 
-        checkNullTasks();
+        checkTasks();
     }
 
     static remove(id) {
@@ -72,7 +72,7 @@ class Task {
         });
 
         // Remove existing task in DOM (including evaluation)
-        $(el).fadeOut(taskFadeDuration, () => { el.remove(); checkNullTasks(); });
+        $(el).fadeOut(taskFadeDuration, () => { el.remove(); checkTasks(); });
     }
 
     static convertDate(dateStr) {
@@ -124,12 +124,14 @@ function init() {
     // Force evaluate
     evaluateTasks();
 
-    checkNullTasks();
+    checkTasks();
 }
 
 // Check if there are no tasks in the task array
-function checkNullTasks() {
+function checkTasks() {
     document.getElementById("no-task-card").style.display = Task.tasks.length > 0 ? "none" : "block";
+
+    document.getElementById("taskcount").textContent = Task.tasks.length;
 }
 
 // Evaluate the due date of all tasks and re-sync to local storage

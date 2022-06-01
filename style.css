@@ -20,6 +20,11 @@ hr {
     border: 1px solid var(--subtle);
 }
 
+h1,
+h3 {
+    margin: 0px;
+}
+
 /* Input styling */
 input {
     background-color: transparent;
@@ -37,6 +42,10 @@ input:focus {
 /* Changes text input placeholder colour */
 input::placeholder {
     color: var(--subtle);
+}
+
+#task-container {
+    margin-top: 30px;
 }
 
 .colored-img {
