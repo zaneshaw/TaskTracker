@@ -14,7 +14,7 @@
     <body onload="init(); updateDayOptions(); resetDateModalOptions(); updateDateText();">
         <div id="container">
             <div id="settings">
-                <img id="settings-btn" onclick="showSettingsModal()" src="./img/gear.png" alt="Settings" />
+                <img id="settings-btn" class="colored-img" onclick="showSettingsModal()" src="./img/gear.svg" alt="Settings" />
                 <div id="settings-modal">
                     <span>Clear Tasks (Irreversible)</span>
                     <button onclick="clearTasks()">Confirm</button>
@@ -34,7 +34,7 @@
                 <div id="new-task-date">
                     <p id="new-task-date-text">28 May</p>
                     <div id="date-modal">
-                        <img id="reset-date-modal-btn" onclick="resetDateModalOptions()" src="./img/refresh.png" alt="Reset date and time" />
+                        <img id="reset-date-modal-btn" class="colored-img" onclick="resetDateModalOptions()" src="./img/refresh.svg" alt="Reset date and time" />
                         <span>Date</span>
                         <div class="input-flex">
                             <select id="date-modal-year" onchange="updateDayOptions(); updateDateText();">

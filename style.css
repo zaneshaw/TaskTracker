@@ -38,6 +38,10 @@ input::placeholder {
     color: var(--subtle);
 }
 
+.colored-img {
+    filter: invert(76%) sepia(21%) saturate(22%) hue-rotate(43deg) brightness(104%) contrast(92%);
+}
+
 #reset-date-modal-btn {
     position: absolute;
     top: 5px;
