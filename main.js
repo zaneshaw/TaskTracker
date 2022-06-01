@@ -23,7 +23,7 @@ const dateModalOptions = {
     }
 }
 
-$(document).ready(function(){
+$(document).ready(() => {
     $('html').fadeIn(2000);
 });
 
