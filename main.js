@@ -133,7 +133,7 @@ function checkTasks() {
 
     // Animation for task counter text
     $("#taskcount").fadeOut("fast", () => {
-        $("#taskcount").text(Task.tasks.length);
+        $("#taskcount").text(`${Task.tasks.length} Active ${plural("Task", Task.tasks.length, false)}`);
         $("#taskcount").fadeIn("fast");
     });
 }
