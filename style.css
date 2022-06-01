@@ -1,6 +1,7 @@
 /* Colour scheme css variables */
 :root {
     --subtle: #cdcdcd;
+    --return-rotate-target: 0deg;
 }
 
 /* Apply font family to everything */
@@ -42,6 +43,7 @@ input::placeholder {
     filter: invert(76%) sepia(21%) saturate(22%) hue-rotate(43deg) brightness(104%) contrast(92%);
 }
 
+/* 'Reset date and time' button */
 #reset-date-modal-btn {
     position: absolute;
     top: 5px;
@@ -51,6 +53,31 @@ input::placeholder {
 
     width: 24px;
     height: 24px;
+    
+    /* Animates hover and click events */
+    --return-rotate-target: 0deg;
+    transition: transform 0.2s;
+}
+
+/* Animates the button when hovered, spins anti-clockwise */
+#reset-date-modal-btn:hover {
+    transform: rotateZ(-90deg);
+    --return-rotate-target: -90deg;
+}
+
+/* Animates the element, spins clock-wise */
+.return-rotate-animation {
+    animation: return-rotate 0.6s;
+}
+
+/* Keyframes for .return-rotate-animation */
+@keyframes return-rotate {
+    50% {
+        transform: rotateZ(180deg);
+    }
+    100% {
+        transform: rotateZ(var(--return-rotate-target));
+    }
 }
 
 /* Fix settings button and modal to te top right of the screen */
