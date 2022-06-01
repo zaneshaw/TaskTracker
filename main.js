@@ -4,6 +4,7 @@ const newTaskDate = document.getElementById("new-task-date");
 const newTaskName = document.getElementById("new-task-name");
 const dateModal = document.getElementById("date-modal");
 const settingsModal = document.getElementById("settings-modal");
+const resetDateModalBtn = $("#reset-date-modal-btn");
 
 let dueDatePadding = 5; // Minutes to allow task to be due
 let taskFadeDuration = 500; // Milliseconds it takes for task cards to dis/appear
@@ -169,6 +170,16 @@ function resetDateModalOptions() {
     dateModalOptions.minute.value = date.getMinutes(); // Get current minute based on local time
     dateModalOptions.period.value = date.getHours() >= 12 ? "PM" : "AM"; // Check if time is in the first half or second half of the day (AM/PM)
 }
+
+// Adds rotate animation class on click
+resetDateModalBtn.click(() => {
+    resetDateModalBtn.addClass("return-rotate-animation");
+});
+
+// Removes rotate animation class when animation ends
+resetDateModalBtn.on("animationend", () => {
+    resetDateModalBtn.removeClass("return-rotate-animation");
+});
 
 // Handle document click events
 document.addEventListener("click", (e) => {
