@@ -61,6 +61,8 @@ input::placeholder {
 /* Settings button pointer cursor */
 #settings-btn {
     cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
 
 /* Styling for the settings pop-up */
