@@ -91,9 +91,9 @@ class Task {
         } else if (diffHours < 0) {
             return "Due Now!";
         } else if (diffMins <= 59) { // Check if due date is under 1 hour
-            return plural("Minute", Math.ceil(diffMins)); // Rounded up (ceiling)
+            return "Minute".plural(Math.ceil(diffMins)); // Rounded up (ceiling)
         } else if (diffDays < 1) { // Check if due date is under 24 hours
-            return plural("Hour", Math.round(diffHours)); // Rounded to nearest (plural support)
+            return "Hour".plural(Math.round(diffHours)); // Rounded to nearest (plural support)
         } else if (day == new Date().getDate() + 1) { // Check if due date is tomorrow
             return "Tomorrow";
         } else { // Check if date is after tomorrow
@@ -133,7 +133,7 @@ function checkTasks() {
 
     // Animation for task counter text
     $("#taskcount").fadeOut("fast", () => {
-        $("#taskcount").text(`${Task.tasks.length} Active ${plural("Task", Task.tasks.length, false)}`);
+        $("#taskcount").text(`${"Active Task".plural(Task.tasks.length)}`);
         $("#taskcount").fadeIn("fast");
     });
 }
@@ -253,8 +253,8 @@ setInterval(() => {
 }, 1000);
 
 // Convert a number paired with a string to a plural
-function plural(str, mag, prependMag = true) {
-    return `${prependMag ? mag : ""} ${str}${(mag == 1 ? "" : "s")}`.trim();
+String.prototype.plural = function (mag) {
+    return `${mag} ${this}${(mag == 1 ? "" : "s")}`;
 }
 
 function uuid() {
